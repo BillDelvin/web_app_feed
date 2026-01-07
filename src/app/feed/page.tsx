@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { ConnectionStatusIndicator } from "@/components/connection-status";
 import { FeedTabs } from "@/components/feed-tabs";
 import { SearchInput } from "@/components/search-input";
-import { EventFeed } from "@/components/event-feed";
+import EventFeed from "@/components/event-feed";
 import { Wifi, Trash2 } from "lucide-react";
 import { WebSocketProvider, useWebSocket } from "@/contexts/websocket-context";
 
@@ -15,8 +15,6 @@ import { Feed } from "@/types/events";
 import { IPageState } from "@/types/page";
 
 function FeedDashboard() {
-  // const [selectedFeed, setSelectedFeed] = React.useState<Feed>(Feed.ALL);
-  // const [searchQuery, setSearchQuery] = React.useState("");
   const [state, setState] = React.useState<IPageState>({
     selectedFeed: Feed.ALL,
     searchQuery: "",
@@ -32,8 +30,8 @@ function FeedDashboard() {
     clearEvents,
   } = useWebSocket();
 
-  // Debug logging
   React.useEffect(() => {
+    // Debug logging
     console.log("FeedDashboard mounted, WebSocket state:", {
       events: events.length,
       connectionStatus,
@@ -71,7 +69,7 @@ function FeedDashboard() {
           </div>
         </div>
 
-        {/* WebSocket Debug */}
+        {/* WebSocket Log */}
         <WebSocketLog />
 
         {/* Controls */}
