@@ -15,3 +15,9 @@ export interface IWebsocketState {
   messages: string[];
   ws: WebSocket | null;
 }
+
+export interface IWebsocketContextType {
+  events: BaseEvent[];
+  connectionStatus: ConnectionStatus;
+  reconnectAttempts: number;
+}
