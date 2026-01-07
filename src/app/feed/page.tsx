@@ -1,13 +1,13 @@
 "use client";
 import React from "react";
 
+import WebSocketLog from "@/components/websocket-log";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ConnectionStatusIndicator } from "@/components/connection-status";
 import { FeedTabs } from "@/components/feed-tabs";
 import { SearchInput } from "@/components/search-input";
 import { EventFeed } from "@/components/event-feed";
-import { WebSocketDebug } from "@/components/websocket-debug";
 import { Wifi, Trash2 } from "lucide-react";
 import { WebSocketProvider, useWebSocket } from "@/contexts/websocket-context";
 
@@ -57,7 +57,7 @@ function FeedDashboard() {
         <div className="mb-6">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">Real-Time Feed Dashboard</h1>
+              <h1 className="text-3xl font-bold text-gray-900">Feed Dashboard</h1>
               <p className="text-gray-600 mt-1">
                 Monitor incoming events with filtering and search
               </p>
@@ -72,7 +72,7 @@ function FeedDashboard() {
         </div>
 
         {/* WebSocket Debug */}
-        <WebSocketDebug />
+        <WebSocketLog />
 
         {/* Controls */}
         <Card className="mb-6">
