@@ -1,5 +1,12 @@
 import * as Zod from "zod";
 
+export interface IEventFeedProps {
+  events: BaseEvent[];
+  selectedFeed: Feed;
+  searchQuery: string;
+  isLoading?: boolean;
+}
+
 // Feed enum
 export enum Feed {
   ALL = "all",
