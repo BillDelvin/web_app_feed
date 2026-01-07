@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WebSocket Test</title>
+  </head>
+  <body>
+    <h1>WebSocket Test</h1>
+    <div id="status">Disconnected</div>
+    <div id="messages"></div>
+
+    <script>
+      const ws = new WebSocket("ws://localhost:8080");
+      const status = document.getElementById("status");
+      const messages = document.getElementById("messages");
+
+      ws.onopen = () => {
+        status.textContent = "Connected";
+        status.style.color = "green";
+      };
+
+      ws.onmessage = (event) => {
+        const message = document.createElement("div");
+        message.textContent = `Received: ${event.data}`;
+        messages.appendChild(message);
+        console.log("Received:", event.data);
+      };
+
+      ws.onerror = (error) => {
+        status.textContent = "Error";
+        status.style.color = "red";
+        console.error("WebSocket error:", error);
+      };
+
+      ws.onclose = () => {
+        status.textContent = "Disconnected";
+        status.style.color = "red";
+      };
+    </script>
+  </body>
+</html>
